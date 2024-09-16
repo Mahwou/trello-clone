@@ -1,11 +1,24 @@
-import './App.css';
+import { AppContainer, CartContainer, ColumnContainer, ColumnTitle } from "./styles";
 
 export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        This is where we begin
-      </header>
-    </div>
+    <AppContainer>
+      <ColumnContainer>
+        <ColumnTitle>Conseils Habitat: </ColumnTitle>
+
+        <CartContainer>First Items</CartContainer>
+        <CartContainer>Second Items</CartContainer>
+        <CartContainer>Third Items</CartContainer>
+      </ColumnContainer>
+
+      <ColumnContainer>
+        <ColumnTitle>Gesty: </ColumnTitle>
+
+        <CartContainer>First Items</CartContainer>
+        <CartContainer>Second Items</CartContainer>
+        <CartContainer>Third Items</CartContainer>
+      </ColumnContainer>
+      
+    </AppContainer>
   );
 }
