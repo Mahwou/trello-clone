@@ -1,23 +1,12 @@
-import { AppContainer, CartContainer, ColumnContainer, ColumnTitle } from "./styles";
+import { Column } from "./components/Column";
+import { AppContainer } from "./styles";
 
 export function App() {
   return (
     <AppContainer>
-      <ColumnContainer>
-        <ColumnTitle>Conseils Habitat: </ColumnTitle>
 
-        <CartContainer>First Items</CartContainer>
-        <CartContainer>Second Items</CartContainer>
-        <CartContainer>Third Items</CartContainer>
-      </ColumnContainer>
-
-      <ColumnContainer>
-        <ColumnTitle>Gesty: </ColumnTitle>
-
-        <CartContainer>First Items</CartContainer>
-        <CartContainer>Second Items</CartContainer>
-        <CartContainer>Third Items</CartContainer>
-      </ColumnContainer>
+      <Column text="Conseils Habitat"></Column>
+      <Column text="Gesty"></Column>
       
     </AppContainer>
   );
