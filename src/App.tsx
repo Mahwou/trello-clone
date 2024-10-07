@@ -8,7 +8,10 @@ export function App() {
 
       <Column text="Conseils Habitat"></Column>
       <Column text="Gesty"></Column>
-      <AddNewItem toggleButtonText=" + Add new Cart" dark={false} onAdd={() => console.log('Cart successfully added !')} />
+      <AddNewItem toggleButtonText=" + Add new Cart" 
+      dark={false} 
+      onAdd={() => console.log('Cart successfully added !')} 
+      />
       
     </AppContainer>
   );
