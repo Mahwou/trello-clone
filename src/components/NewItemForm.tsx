@@ -22,7 +22,9 @@ export const NewItemForm = ({onAdd}: NewItemFormType) => {
             onChange={(e) => setText(e.target.value)} 
             onKeyPress={handleSumit}
             />
-            <NewItemFormButton>Create</NewItemFormButton>
+            <NewItemFormButton onClick={() => onAdd(text)}>
+                Create
+            </NewItemFormButton>
         </NewItemFormContainer>
     );
 };
