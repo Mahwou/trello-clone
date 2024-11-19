@@ -11,7 +11,6 @@ export const NewItemForm = ({onAdd}: NewItemFormType) => {
     const inputRef = useFocus();
 
     const handleSumit = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        
         if(e.key === "Enter") onAdd(text);
     };
 
