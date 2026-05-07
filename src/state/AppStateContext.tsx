@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, FC, ReactNode, useContext } from "react";
 
 type Task = {
     id: string,
@@ -9,4 +9,77 @@ type List = {
     id: string,
     text: string,
     tasks: Task[]
+}
+
+export type AppState = {
+    lists: List[]
+}
+
+const appData: AppState = {
+    lists: [
+        {   id: '01',
+            text: 'Conseils Habitat',
+            tasks: [
+                { id: '0', text: 'First note' },
+                { id: '1', text: 'Second note' },
+                { id: '2', text: 'Third note' },
+                { id: '3', text: 'Fourth note' }
+            ]
+        },
+        {   id: '02',
+            text: 'Gesty',
+            tasks: [
+                { id: '4', text: 'First note' },
+                { id: '5', text: 'Second note' },
+                { id: '6', text: 'Third note' },
+                { id: '7', text: 'Fourth note' }
+            ]
+        },
+        {   id: '03',
+            text: 'To do',
+            tasks: [
+                { id: '8', text: 'First task' },
+                { id: '9', text: 'Second task' }
+            ]
+        },
+        {   id: '04',
+            text: 'Done',
+            tasks: [
+                { id: '10', text: 'First done task' },
+                { id: '11', text: 'Second done task' }
+            ]
+        },
+        {   id: '05',
+            text: 'In progress',
+            tasks: [
+                { id: '12', text: 'First in progress task' },
+                { id: '13', text: 'Second in progress task' }
+            ]
+        }
+    ]
+}
+
+type AppStateContextProps = {
+    lists: List[],
+    getTasksByListId(id: string): Task[]
+}
+
+const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
+
+export const AppStateProvider: FC<{ children: ReactNode }> = ({ children }) => {
+    const { lists } = appData;
+    
+    const getTasksByListId = (id: string) => {
+        return appData.lists.find(list => list.id === id)?.tasks || [];
+    };
+
+    return (
+        <AppStateContext.Provider value={{ lists, getTasksByListId }}>
+            {children}
+        </AppStateContext.Provider>
+    );
+}
+
+export const useAppState = () => {
+    return useContext(AppStateContext);
 }

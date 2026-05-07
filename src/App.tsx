@@ -1,16 +1,22 @@
 import { AddNewItem } from "./components/AddNewItem";
 import { Column } from "./components/Column";
 import { AppContainer } from "./styles";
+import { useAppState } from "./state/AppStateContext";
 
 export function App() {
+
+  const { lists } = useAppState();
+
   return (
     <AppContainer>
 
-      <Column text="Conseils Habitat"></Column>
-      <Column text="Gesty"></Column>
+      {
+        lists.map(list => <Column key={list.id} id={list.id} text={list.text} />)
+      }
+      
       <AddNewItem toggleButtonText=" + Add new Cart" 
       dark={false} 
-      onAdd={() => console.log('Cart successfully added !')} 
+      onAdd={(e) => console.log(e)} 
       />
       
     </AppContainer>
