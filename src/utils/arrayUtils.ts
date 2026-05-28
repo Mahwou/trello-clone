@@ -6,5 +6,18 @@ export const findItemIndexById = <TItem extends Item> (
     items: TItem[],
     id: string
 ) => {
-    return items.findIndex((item: TItem) => item.id === id)
+    return items.findIndex((item: TItem) => item.id === id);
+}
+
+export const removeItemAtIndex = <TItem>(items: TItem[], index: number) => {
+    return [...items.slice(0, index), ...items.slice(index + 1, items.length)];
+}
+
+export const addItemAtIndex = <TItem>(items: TItem[], item: TItem, index: number) => {
+    return [...items.slice(0, index), item, ...items.slice(index)];
+}
+
+export const moveItem = <TItem>(items: TItem[], from: number, to: number) => {
+    const item = items[from];
+    return addItemAtIndex(removeItemAtIndex(items, from), item, to);
 }

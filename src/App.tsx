@@ -2,7 +2,7 @@ import { AddNewItem } from "./components/AddNewItem";
 import { Column } from "./components/Column";
 import { AppContainer } from "./styles";
 import { useAppState } from "./state/AppStateContext";
-import {AddList} from "./state/actions";
+import {addList} from "./state/actions";
 
 export function App() {
 
@@ -17,7 +17,7 @@ export function App() {
       
       <AddNewItem toggleButtonText=" + Add new Cart" 
       dark={false} 
-      onAdd={(text) => dispatch(AddList(text))}
+      onAdd={(text) => dispatch(addList(text))}
       />
       
     </AppContainer>
