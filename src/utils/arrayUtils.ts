@@ -9,11 +9,11 @@ export const findItemIndexById = <TItem extends Item> (
     return items.findIndex((item: TItem) => item.id === id);
 }
 
-export const removeItemAtIndex = <TItem>(items: TItem[], index: number) => {
-    return [...items.slice(0, index), ...items.slice(index + 1, items.length)];
+export function removeItemAtIndex<TItem>(items: TItem[], index: number){
+    return [...items.slice(0, index), ...items.slice(index + 1)];
 }
 
-export const addItemAtIndex = <TItem>(items: TItem[], item: TItem, index: number) => {
+export function addItemAtIndex<TItem>(items: TItem[], item: TItem, index: number) {
     return [...items.slice(0, index), item, ...items.slice(index)];
 }
 
